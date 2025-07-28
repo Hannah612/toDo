@@ -14,37 +14,8 @@ const initialState: TasksState = {
   error: null,
 };
 
-// export const fetchTasks = createAsyncThunk("tasks/fetchTasks", async (filtersOrSort: {sortBy:SortType, order:OrderType}) => {
-//     try {
-//         const response = await axios.get("http://localhost:8080/tasks/sort/" + filtersOrSort.sortBy + "/" + filtersOrSort.order, {
-//             headers: {
-//             "Content-Type": "application/json",
-//             },
-//         });
-//         return response.data;
-//     } catch (error) {
-//         console.error("Could not retrieve data:", error);
-//     }
-// })
-
-
-// export const searchTasks = createAsyncThunk("tasks/searchTasks", async (url: string) => {
-//     try {
-//         const response = await axios.get("http://localhost:8080/tasks/search?q=" + url, {
-//             headers: {
-//             "Content-Type": "application/json",
-//             },
-//         });
-//         console.log(url);
-//         return response.data;
-//     } catch (error) {
-//         console.error("Could not retrieve data:", error);
-//     }
-// })
-
 //searching and fetching tasks with sort/filtering 
 // - maybe make fetchTasks able to do all 3 things, url = "/task/search?q={q}?filter=?sort?"
-
 export const fetchTasks = createAsyncThunk("tasks/fetchTasks", async (sort: {url:string, sortBy:SortType, order:OrderType}) => {
     try {
         const response = await axios.get("http://localhost:8080/tasks/search?query=" + sort.url + "&sort=" + sort.sortBy + "&order=" + sort.order, {
@@ -52,9 +23,6 @@ export const fetchTasks = createAsyncThunk("tasks/fetchTasks", async (sort: {url
             "Content-Type": "application/json",
             },
         });
-        console.log(sort.url);
-        console.log("response");
-        console.log(response.data);
         return response.data;
     } catch (error) {
         console.error("Could not retrieve data:", error);

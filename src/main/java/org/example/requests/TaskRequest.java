@@ -1,6 +1,5 @@
 package org.example.requests;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import java.util.Date;
