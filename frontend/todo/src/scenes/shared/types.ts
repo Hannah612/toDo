@@ -8,7 +8,7 @@ export enum SelectedPage {
 
 export enum SortType {
   Date = "date",
-  Priority = "priority_id",
+  Priority = "priorityId",
   Completed = "completed",
   None = "none",
 }
@@ -23,8 +23,8 @@ export interface Input {
     title: string;
     description: string;
     completed: boolean;
-    priority_id: number;
-    due_date: Date;
+    priorityId: number;
+    dueDate: Date;
     [key: string]: string | boolean | number | Date;
 }
 
@@ -42,10 +42,10 @@ export const motionProps = {
 export interface Task {
   title: string;
   description?: string;
-  priority_id: number;
+  priorityId: number;
   completed: boolean;
-  due_date: Date;
-  category_id: number;
+  dueDate: Date;
+  categoryId: number;
   id: number;
   [key: string]: string | boolean | number | Date | undefined;
 }

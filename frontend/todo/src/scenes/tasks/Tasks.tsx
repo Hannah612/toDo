@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { OrderType, SelectedPage, SortType, type Task } from "../shared/types";
+import { OrderType, SelectedPage, SortType} from "../shared/types";
 import { motionProps } from "../shared/types"
 import TaskCheckbox from "../shared/TaskCheckbox";
 import { useEffect, useState } from "react";
@@ -27,9 +27,9 @@ const Tasks = ({setSelectedPage}: Props) => {
    const [search, setSearch] = useState<string>("");
 
   useEffect(() => {
-    dispatch(fetchTasks({sortBy, order}));
-    // dispatch(searchTasks(encodeURIComponent(search))); //apply search filter if there is a query
-    setIsFormSubmitted(false);
+        const url = encodeURIComponent(search);
+        dispatch(fetchTasks({url, sortBy, order}));
+        setIsFormSubmitted(false);
   }, [dispatch, isFormSubmitted, checkedItems, order, sortBy, search]);
 
   return <section

@@ -41,8 +41,8 @@ const NewTaskModal = ({setIsFormSubmitted, showNewTaskModal, setShowNewTaskModal
                 title: "", 
                 description: "",
                 completed: false, 
-                priority_id: 1,
-                due_date: new Date(),
+                priorityId: 1,
+                dueDate: new Date(),
             },
             mode: "onChange", //validate on input change
         });
@@ -64,13 +64,13 @@ const NewTaskModal = ({setIsFormSubmitted, showNewTaskModal, setShowNewTaskModal
   };
 
     useEffect(() => {
-        const dueDateEvent = new CustomEvent("due_date", {
+        const dueDateEvent = new CustomEvent("dueDate", {
             detail: {
-                name: "due_date",
+                name: "dueDate",
                 value: dueDate,
             },
         });
-        setValue("due_date", dueDateEvent.detail.value as Date)
+        setValue("dueDate", dueDateEvent.detail.value as Date)
     }, [dueDate])
 
 
@@ -141,7 +141,7 @@ const NewTaskModal = ({setIsFormSubmitted, showNewTaskModal, setShowNewTaskModal
                         <div className='md:flex md:mr-3 '>
                             <label className={titleStyle}>Priority</label>
                         </div>
-                        <select {...register("priority_id")}>
+                        <select {...register("priorityId")}>
                             <option value={1} className='font-green'>Low</option>
                             <option value={2} className='font-yellow'>Med</option>
                             <option value={3} className='font-red'>High</option>

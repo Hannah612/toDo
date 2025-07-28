@@ -67,38 +67,26 @@ public class TaskController {
 //    }
 
 
-    //e.g. GET ?query=hello&sort=completed&order=asc
-    @GetMapping(params = "query, sort, order")
+    //e.g. GET tasks/search?query=hello&sort=completed&order=asc
+    @GetMapping("/search")
     public List<TaskRequest> getTasks(
-            @RequestParam String query,
-            @RequestParam String sort,
-            @RequestParam String order
+            @RequestParam(defaultValue = "") String query,
+            @RequestParam(defaultValue = "priorityId") String sort,
+            @RequestParam(defaultValue = "asc") String order
     ){
+        System.out.println("in the search func");
+
         List<Task> findBy = null;
         Sort.Direction direction = this.findDirection(order);
         try {
-
-            SortType sortType = SortType.valueOf(type.toUpperCase());
-            findBy = taskRepository.findByQueryAndSort(query);
+            Sort sorting = Sort.by(direction, sort);
+            findBy = taskRepository.findByTitleContainingOrDescriptionContaining(query, query, sorting);
             return findBy.stream()
                     .map(taskMapper::toDto)
                     .toList();
-//
-//            if (sortType == SortType.PRIORITY_ID){
-//                findBy = taskRepository.findByPriorityId(sort);
-//            } else if (sortType == SortType.COMPLETED) {
-//                findBy = taskRepository.findByCompleted(sort);
-//            } else {
-//                findBy = taskRepository.findByDueDate(sort);
-//            }
-
-//            return findBy.stream()
-//                    .map(taskMapper::toDto)
-//                    .toList();
         } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException("Unable to sort using the parameters given.");
         }
-
     }
 
     @PostMapping

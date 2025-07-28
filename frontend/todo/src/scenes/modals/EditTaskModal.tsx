@@ -38,8 +38,8 @@ const EditTaskModal = ({task, setShowEditTaskModal, showEditTaskModal, setIsForm
                 title: task.title, 
                 description: task.description ?? "",
                 completed: task.completed, 
-                priority_id: task.priority_id,
-                due_date: task.due_date,
+                priorityId: task.priorityId,
+                dueDate: task.dueDate,
             },
             mode: "onChange", //validate on input change
         });
@@ -61,19 +61,19 @@ const EditTaskModal = ({task, setShowEditTaskModal, showEditTaskModal, setIsForm
     };
 
     useEffect(() => {
-        const dueDateEvent = new CustomEvent("due_date", {
+        const dueDateEvent = new CustomEvent("dueDate", {
             detail: {
-                name: "due_date",
+                name: "dueDate",
                 value: dueDate,
             },
         });
-        setValue("due_date", dueDateEvent.detail.value as Date)
+        setValue("dueDate", dueDateEvent.detail.value as Date)
     }, [dueDate])
 
     useEffect(() => {
         const submitBtn = document.getElementById("submitButton");
         if (submitBtn) {
-            if (Object.keys(dirtyFields).length > 0 || dueDate?.toLocaleString() !== (new Date(task.due_date)).toLocaleString()){
+            if (Object.keys(dirtyFields).length > 0 || dueDate?.toLocaleString() !== (new Date(task.dueDate)).toLocaleString()){
                 (submitBtn as HTMLButtonElement).disabled = false;
             }
             else (submitBtn as HTMLButtonElement).disabled = true;
@@ -134,7 +134,7 @@ const EditTaskModal = ({task, setShowEditTaskModal, showEditTaskModal, setIsForm
                         <div className='md:flex md:mr-3 '>
                             <label className={titleStyle}>Priority</label>
                         </div>
-                        <select {...register("priority_id", {valueAsNumber: true})}>
+                        <select {...register("priorityId", {valueAsNumber: true})}>
                             <option value={1} className='font-green'>Low</option>
                             <option value={2} className='font-yellow'>Med</option>
                             <option value={3} className='font-red'>High</option>
@@ -146,7 +146,7 @@ const EditTaskModal = ({task, setShowEditTaskModal, showEditTaskModal, setIsForm
                             <label className={titleStyle}>Due Date</label>
                         </div>
                         <CalendarStyling>
-                            <Calendar key="calendar" defaultValue={task.due_date} onChange={onChange}/>
+                            <Calendar key="calendar" defaultValue={task.dueDate} onChange={onChange}/>
                         </CalendarStyling>
                     </div>
                     <div className="flex mt-5 mb-5">

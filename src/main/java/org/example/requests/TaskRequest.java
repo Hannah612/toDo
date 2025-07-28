@@ -11,7 +11,7 @@ public class TaskRequest {
     private String categoryId;
     private Boolean completed;
     private String description;
-    private Date due_date;
+    private Date dueDate;
     private Long priorityId;
     private String title;
 }

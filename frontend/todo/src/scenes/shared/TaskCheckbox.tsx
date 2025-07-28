@@ -31,7 +31,7 @@ const TaskCheckbox = (
     };
    const [showEditTaskModal, setShowEditTaskModal] = useState<boolean>(false);
 
-    const date = new Date(task.due_date)
+    const date = new Date(task.dueDate)
     const priorityMap: Record<number, string> = {
         1: "text-green",
         2: "text-yellow",
@@ -42,8 +42,9 @@ const TaskCheckbox = (
         return field.toString().length < 2 ? "0" + field : field;
     }
 
-    const priorityColor = priorityMap[task.priority_id] ?? ""; 
+    const priorityColor = priorityMap[task.priorityId] ?? ""; 
     const completed = `text-gray-400`;
+
     return (
         <div>
             <li className={`flex gap-4 rounded-md ${task.completed ? "hover:bg-green-light-bg" : "hover:bg-transparent"}`}>
@@ -62,7 +63,6 @@ const TaskCheckbox = (
                                     task.title
                             )}
                         </span>
-
 
                     <p className="ml-auto"> {date.getFullYear()}-{formatDateTime(date.getMonth()+1)}-{formatDateTime(date.getDate())}</p>
                     </div>

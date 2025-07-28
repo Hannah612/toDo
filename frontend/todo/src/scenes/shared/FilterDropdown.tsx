@@ -29,8 +29,8 @@ const FilterDropdown = (
                     <label className="font-bold underline">Sort By</label>
                 </div>
                 <select className="ml-auto rounded-md text-black" id="dropdown" onChange={handleDropdownChange} name="filter">
-                    <option value="priority_id">Priority</option>
-                    <option value="due_date">Due Date</option>
+                    <option value="priorityId">Priority</option>
+                    <option value="dueDate">Due Date</option>
                     <option value="completed">Completed</option>
                 </select>
             </div>

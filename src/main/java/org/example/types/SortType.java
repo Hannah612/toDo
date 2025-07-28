@@ -1,7 +1,7 @@
 package org.example.types;
 
 public enum SortType {
-    PRIORITY_ID("priority_id"), COMPLETED("completed"), DUE_DATE("due_date");
+    PRIORITYID("priorityId"), COMPLETED("completed"), DUEDATE("dueDate");
 
     private String label;
 

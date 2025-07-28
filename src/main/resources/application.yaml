@@ -7,5 +7,10 @@ spring:
     password: root
   jpa:
     show-sql: true
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
   flyway:
     baseline-on-migrate: true
+
+
