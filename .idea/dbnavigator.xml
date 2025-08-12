@@ -24,7 +24,7 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="ae321025-72db-4f89-ad9a-31038901c1b8">
-      <console name="Connection" type="STANDARD" schema="mysql" session="Main"><![CDATA[SELECT * FROM todo.tasks WHERE completed = true;]]></console>
+      <console name="Connection" type="STANDARD" schema="mysql" session="Main"><![CDATA[SELECT * FROM todo.tasks;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">

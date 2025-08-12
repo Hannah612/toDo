@@ -54,18 +54,6 @@ public class TaskController {
         return Sort.Direction.DESC;
     }
 
-//    @GetMapping(value = "/search", params = "q")
-//    public List<TaskRequest> searchForTask(
-//            @RequestParam String q
-//    ){
-//        System.out.println(q);
-//        System.out.println("q");
-//        return taskRepository.findByQuery(q)
-//                        .stream()
-//                        .map(taskMapper::toDto)
-//                        .toList();
-//    }
-
 
     //e.g. GET tasks/search?query=hello&sort=completed&order=asc
     @GetMapping("/search")
