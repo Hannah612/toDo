@@ -5,10 +5,8 @@ import { useForm } from "react-hook-form";
 import Modal from 'react-modal';
 import { toast } from 'react-toastify';
 import { CalendarStyling, type Input } from '../shared/types';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { postTask } from '../../slices/postTaskSlice';
-import type { AxiosResponse } from 'axios';
-import type { AsyncThunkAction } from '@reduxjs/toolkit';
 import type { AppDispatch } from '../../store';
 import { ResponseCodes } from '../shared/ResponseCodes';
 /*

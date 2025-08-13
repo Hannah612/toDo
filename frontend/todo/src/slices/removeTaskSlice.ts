@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import type { Input, Task } from "../scenes/shared/types";
+import type { Task } from "../scenes/shared/types";
 import axios from 'axios'
 //post a task to server
 

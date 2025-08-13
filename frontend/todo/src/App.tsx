@@ -8,7 +8,7 @@ import Footer from "./scenes/footer/Footer";
 
 function App() {
   const [selectedPage, setSelectedPage] = useState<SelectedPage>(SelectedPage.Home); //typescript inferred types can find the type for you by default, but better to be explicit
-  const [isTopOfPage, setIsTopOfPage] = useState<boolean>(true);
+  const [_, setIsTopOfPage] = useState<boolean>(true);
 
   useEffect(() => { //useEffect updates dynamically 
     const handleScroll = () => {
