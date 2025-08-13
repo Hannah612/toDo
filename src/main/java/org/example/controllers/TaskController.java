@@ -25,7 +25,7 @@ import java.util.Objects;
 
 @RestController
 @AllArgsConstructor
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "*")
 @RequestMapping("/tasks")
 public class TaskController {
     private final TaskRepository taskRepository;
